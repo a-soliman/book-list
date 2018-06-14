@@ -97,3 +97,6 @@ class lStorage {
         return;
     }
 }
+
+const ui = new UI();
+ui.displayBooks();
