@@ -125,3 +125,18 @@ document.querySelector('form').addEventListener('submit', (e) => {
     ui.showAlert(true, 'Book was added!');
     setTimeout(ui.removeAlert, 3000);
 });
+
+// EVENT LISTENERS ON DELETE ICON
+document.querySelector('#book-list').addEventListener('click', (e) => {
+    e.preventDefault();
+    if ( !e.target.classList.contains('delete') ) { return; }
+    const row = e.target.parentElement.parentElement;
+    const title = row.firstElementChild.innerText;
+
+    ui.removeBook(row);
+    lStorage.removeBook(title);
+    ui.scrollToTop();
+    ui.showAlert(true, 'Book was deleted!');
+    setTimeout(ui.removeAlert, 3000);
+
+});
