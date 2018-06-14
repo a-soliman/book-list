@@ -100,3 +100,28 @@ class lStorage {
 
 const ui = new UI();
 ui.displayBooks();
+
+// EVENT LISTENERS ON FORM SUBMIT
+document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const title     = document.querySelector('#title').value.trim();
+    const author    = document.querySelector('#author').value.trim();
+    const isbn      = document.querySelector('#isbn').value.trim();
+    
+    if ( !validInputs({title, author, isbn}) ) {
+        ui.scrollToTop();
+        ui.showAlert(false, 'Check the input fields.');
+        setTimeout(ui.removeAlert, 3000);
+        return; 
+    }
+    
+    const newBook   = new Book(title, author, isbn);
+
+    ui.addBookToList(newBook);
+    lStorage.addBook(newBook);
+    ui.clearFields();
+    ui.scrollToTop();
+    ui.showAlert(true, 'Book was added!');
+    setTimeout(ui.removeAlert, 3000);
+});
