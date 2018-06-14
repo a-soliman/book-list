@@ -140,3 +140,11 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
     setTimeout(ui.removeAlert, 3000);
 
 });
+
+// VALIDATE INPUTS
+function validInputs( inputs ) {
+    for (let value in inputs ) {
+        if ( inputs[value].length < 1 ) { return false; }
+    }
+    return true;
+}
