@@ -11,7 +11,36 @@
     <div class="container">
         <div class="row">
             <div class="col">
-
+                <h1>Add Book</h1>
+                <form id="bood-form">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISBN#</label>
+                        <input type="text" id="isbn" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="submit" class="btn btn-outline-secondary btn-block btn-lg">
+                    </div>
+                </form>
+                <hr>
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN#</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="book-list"></tbody>
+                </table>
             </div>
         </div>
     </div>
