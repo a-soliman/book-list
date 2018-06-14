@@ -71,3 +71,29 @@ class UI {
     }
 
 }
+
+// LOCAL STORAGE CLASS
+class lStorage {
+    constructor() {}
+
+    static getBooks() {
+        let books = JSON.parse(localStorage.getItem('books')) || [];
+        return books;
+    }
+
+    static addBook(book) {
+        const books = lStorage.getBooks();
+        books.push(book);
+        localStorage.setItem('books', JSON.stringify(books));
+        return;
+    }
+
+    static removeBook(title) {
+        let books = lStorage.getBooks();
+        books = books.filter( ( book ) => {
+            return book.title != title;
+        });
+        localStorage.setItem('books', JSON.stringify(books));
+        return;
+    }
+}
